@@ -1,58 +1,54 @@
-/* 🌌 General Setup */
+/* Reset & general */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
 body {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+  color: #fff;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  color: #fff;
-  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  transition: background 1.5s ease;
 }
 
-/* 💫 Floating heart particles */
-.floating-hearts::before,
-.floating-hearts::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  background: repeating-radial-gradient(
-    circle at random(100%) random(100%),
-    rgba(255, 255, 255, 0.05) 0,
-    transparent 1%
-  );
-}
+/* 🌈 Themes (background gradients) */
+body.theme-molten { background: linear-gradient(180deg, #000000 0%, #100500 50%, #1f0a00 100%); }
+body.theme-cosmic { background: linear-gradient(180deg, #000000 0%, #050010 50%, #0a001f 100%); }
+body.theme-emerald { background: linear-gradient(180deg, #000000 0%, #001005 50%, #001f0a 100%); }
 
-@keyframes floatHearts {
-  from { transform: translateY(0); }
-  to { transform: translateY(-100vh); }
-}
-
-/* 💖 Glowing central heart */
-.background {
+/* ✨ Glow overlay */
+.glow {
   position: fixed;
   inset: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 0;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.6;
 }
+
+body.theme-molten .glow { background: radial-gradient(circle at 50% 50%, rgba(255,100,0,0.05), transparent 70%); }
+body.theme-cosmic .glow { background: radial-gradient(circle at 50% 50%, rgba(147,112,219,0.05), transparent 70%); }
+body.theme-emerald .glow { background: radial-gradient(circle at 50% 50%, rgba(0,255,127,0.05), transparent 70%); }
+
+/* 💖 Neon Heart */
+.background { position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; z-index: 0; }
 
 .heart {
   position: relative;
   width: 120px;
   height: 120px;
-  background: var(--heart-color);
+  background: currentColor;
   transform: rotate(-45deg);
   animation: heartbeat 1.5s ease-in-out infinite;
-  filter: drop-shadow(0 0 20px var(--heart-color))
-          drop-shadow(0 0 50px var(--heart-color))
-          drop-shadow(0 0 80px var(--heart-color));
+  filter: drop-shadow(0 0 20px currentColor)
+          drop-shadow(0 0 50px currentColor)
+          drop-shadow(0 0 80px currentColor);
+  color: inherit;
 }
+
+body.theme-molten .heart { color: #ff66b2; }
+body.theme-cosmic .heart { color: #cc99ff; }
+body.theme-emerald .heart { color: #66ccff; }
 
 .heart::before,
 .heart::after {
@@ -60,22 +56,13 @@ body {
   position: absolute;
   width: 120px;
   height: 120px;
-  background: var(--heart-color);
+  background: currentColor;
   border-radius: 50%;
   filter: inherit;
 }
+.heart::before { top: -60px; left: 0; }
+.heart::after { left: 60px; top: 0; }
 
-.heart::before {
-  top: -60px;
-  left: 0;
-}
-
-.heart::after {
-  left: 60px;
-  top: 0;
-}
-
-/* ❤️ Heartbeat Animation */
 @keyframes heartbeat {
   0%, 100% { transform: rotate(-45deg) scale(1); }
   25% { transform: rotate(-45deg) scale(1.1); }
@@ -83,21 +70,21 @@ body {
   75% { transform: rotate(-45deg) scale(1.05); }
 }
 
-/* 🌷 Glass effect for text area */
+/* 🌷 Glass container */
 .container {
   position: relative;
   z-index: 2;
   text-align: center;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255,255,255,0.1);
   padding: 30px 20px;
   border-radius: 25px;
-  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 25px rgba(255,255,255,0.15);
   width: 85%;
   max-width: 400px;
   backdrop-filter: blur(15px);
 }
 
-/* 🧁 Inputs & Buttons */
+h1 { font-size: 1.8rem; margin-bottom: 20px; text-shadow: 0 0 20px currentColor; }
 input {
   padding: 10px;
   border: none;
@@ -106,41 +93,24 @@ input {
   margin-bottom: 10px;
   text-align: center;
 }
-
 button {
   padding: 10px 20px;
-  background-color: var(--heart-color);
   border: none;
   border-radius: 10px;
-  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 15px var(--heart-color);
+  background-color: currentColor;
+  color: #fff;
+  box-shadow: 0 0 15px currentColor;
 }
+button:hover { transform: scale(1.05); box-shadow: 0 0 25px currentColor; }
 
-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 25px var(--heart-color);
-}
-
-/* 💎 Text Styling */
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-shadow: 0 0 20px var(--heart-color);
-}
-
-.error {
-  margin-top: 10px;
-  color: #ffebee;
-  font-weight: bold;
-}
-
+.error { margin-top: 10px; color: #ffebee; font-weight: bold; }
 .quote {
   font-size: 1.3rem;
   line-height: 1.7;
   font-style: italic;
-  text-shadow: 0 0 15px var(--heart-color);
+  text-shadow: 0 0 15px currentColor;
   padding: 20px;
 }
