@@ -6,19 +6,19 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="theme-molten">
+  <!-- Background animation -->
   <div id="container"></div>
   <div class="glow"></div>
 
-  <!-- Centered content -->
+  <!-- Centered input -->
   <div class="center-content">
-    <h1>Enter your name</h1>
-    <input type="text" id="nameInput" placeholder="Your Name" />
+    <h1>Enter Your Name</h1>
+    <input type="text" id="nameInput" placeholder="Your Name" autocomplete="off">
     <br>
     <button id="submitName">Submit</button>
     <p id="errorMsg" style="color:red; display:none;">This message is not for you!</p>
   </div>
 
-  <!-- Three.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
   <script src="script.js"></script>
 </body>

@@ -1,103 +1,61 @@
+/* General */
 * { margin:0; padding:0; box-sizing:border-box; }
+body { overflow:hidden; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#fff; transition: background 1.5s ease; }
+#container { position: fixed; top:0; left:0; width:100%; height:100%; }
+.glow { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:screen; opacity:0.75; transition: background 1.5s ease; }
 
-body {
-  overflow:hidden;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color:#fff;
-  transition: background 1.5s ease;
-  position: relative;
-}
-
-#container {
-  position: fixed;
-  top:0; left:0;
-  width:100%;
-  height:100%;
-  overflow:hidden;
-  z-index: -1;
-}
-
+/* Center content */
 .center-content {
-  position: absolute;
+  position: fixed;
   top:50%;
   left:50%;
-  transform: translate(-50%,-50%);
-  text-align:center;
-}
-
-input[type="text"] {
-  padding:10px 15px;
-  font-size:16px;
-  border-radius:8px;
-  border:none;
-  margin-top:10px;
-}
-
-button {
-  padding:10px 20px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  cursor:pointer;
-  background: #ff4081;
-  color:white;
-  font-size:16px;
-}
-
-/* Glow overlay */
-.glow {
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  pointer-events: none;
-  mix-blend-mode: screen;
-  opacity:0.75;
-  transition: background 1.5s ease;
-}
-
-.center-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-  z-index: 10; /* ensures it appears above the Three.js animation */
+  text-align:center;
+  z-index:10;
 }
 
 .center-content h1 {
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #ff77aa;
+  font-size:2.2em;
+  margin-bottom:20px;
+  color:#ff77aa;
 }
 
 .center-content input {
-  padding: 10px 15px;
-  font-size: 1em;
-  border-radius: 8px;
-  border: none;
-  outline: none;
-  margin-bottom: 15px;
-  width: 200px;
-  text-align: center;
+  padding:12px 15px;
+  font-size:1em;
+  border-radius:10px;
+  border:none;
+  outline:none;
+  margin-bottom:15px;
+  width:220px;
+  text-align:center;
 }
 
 .center-content button {
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 8px;
-  border: none;
-  background: #ff4081;
-  color: #fff;
-  cursor: pointer;
+  padding:12px 25px;
+  font-size:1em;
+  border-radius:10px;
+  border:none;
+  background:#ff4081;
+  color:#fff;
+  cursor:pointer;
   transition: background 0.3s ease;
 }
 
-.center-content button:hover {
-  background: #ff79a8;
+.center-content button:hover { background:#ff79a8; }
+
+.center-content .quote {
+  font-size:1.5em;
+  line-height:1.6em;
+  max-width:500px;
+  margin:auto;
+  color:#ffccdd;
 }
 
-
 /* Themes */
-body.theme-molten { background: linear-gradient(180deg,#000000 0%,#100500 50%,#1f0a00 100%); }
-body.theme-cosmic { background: linear-gradient(180deg,#000000 0%,#050010 50%,#0a001f 100%); }
-body.theme-emerald { background: linear-gradient(180deg,#000000 0%,#001005 50%,#001f0a 100%); }
+body.theme-molten { background:linear-gradient(180deg,#000000 0%,#100500 50%,#1f0a00 100%); }
+body.theme-cosmic { background:linear-gradient(180deg,#000000 0%,#050010 50%,#0a001f 100%); }
+body.theme-emerald { background:linear-gradient(180deg,#000000 0%,#001005 50%,#001f0a 100%); }
+
+/* Responsive */
+@media(max-width:768px){ .center-content h1{font-size:1.8em;} .center-content .quote{font-size:1.2em; max-width:90%;} .center-content input{width:180px;} }

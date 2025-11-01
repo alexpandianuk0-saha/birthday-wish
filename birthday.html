@@ -11,20 +11,20 @@
 
   <div class="center-content">
     <h1 id="greeting"></h1>
-    <button id="showMessage">You have 1 message</button>
+    <button id="viewMessage">You have one message</button>
   </div>
 
+  <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
+  <script src="script.js"></script>
   <script>
-    // Load the name from localStorage
-    const name = localStorage.getItem("sahana_name");
-    if (!name) {
-      window.location.href = "index.html";
-    }
-    document.getElementById("greeting").innerText = `Happy Birthday, ${name}!`;
+    document.addEventListener("DOMContentLoaded", () => {
+      const name = localStorage.getItem("name") || "Sahana";
+      document.getElementById("greeting").textContent = `Happy Birthday, ${name}!`;
 
-    document.getElementById("showMessage").onclick = () => {
-      window.location.href = "quote.html";
-    };
+      document.getElementById("viewMessage").onclick = () => {
+        window.location.href = "message.html"; // updated to message.html
+      };
+    });
   </script>
 </body>
 </html>
