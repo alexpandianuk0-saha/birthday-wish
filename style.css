@@ -59,3 +59,29 @@ body.theme-emerald { background:linear-gradient(180deg,#000000 0%,#001005 50%,#0
 
 /* Responsive */
 @media(max-width:768px){ .center-content h1{font-size:1.8em;} .center-content .quote{font-size:1.2em; max-width:90%;} .center-content input{width:180px;} }
+
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10;
+}
+
+.center-content input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+.center-content button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}

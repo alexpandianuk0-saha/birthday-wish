@@ -14,7 +14,6 @@
     <button id="viewMessage">You have one message</button>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.min.js"></script>
   <script src="script.js"></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +21,7 @@
       document.getElementById("greeting").textContent = `Happy Birthday, ${name}!`;
 
       document.getElementById("viewMessage").onclick = () => {
-        window.location.href = "message.html"; // updated to message.html
+        window.location.href = "message.html";
       };
     });
   </script>
