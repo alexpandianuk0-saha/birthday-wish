@@ -1,4 +1,4 @@
-/* General layout */
+/* 🌌 General Setup */
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
@@ -7,86 +7,104 @@ body {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: #000;
   color: #fff;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
 }
 
-/* Neon heart animation background */
-.background {
+/* 💫 Floating heart particles */
+.floating-hearts::before,
+.floating-hearts::after {
+  content: "";
   position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: repeating-radial-gradient(
+    circle at random(100%) random(100%),
+    rgba(255, 255, 255, 0.05) 0,
+    transparent 1%
+  );
+}
+
+@keyframes floatHearts {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}
+
+/* 💖 Glowing central heart */
+.background {
+  position: fixed;
   inset: 0;
-  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   z-index: 0;
 }
 
 .heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 180px;
-  transform: translate(-50%, -50%) scale(1);
-  background: transparent;
-  animation: float 4s ease-in-out infinite alternate;
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background: var(--heart-color);
+  transform: rotate(-45deg);
+  animation: heartbeat 1.5s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px var(--heart-color))
+          drop-shadow(0 0 50px var(--heart-color))
+          drop-shadow(0 0 80px var(--heart-color));
 }
 
 .heart::before,
 .heart::after {
-  content: "";
+  content: '';
   position: absolute;
-  width: 200px;
-  height: 180px;
+  width: 120px;
+  height: 120px;
   background: var(--heart-color);
   border-radius: 50%;
-  filter: blur(25px) brightness(2);
-  box-shadow: 0 0 60px var(--heart-color), 0 0 100px var(--heart-color);
-  animation: pulse 2s ease-in-out infinite alternate;
+  filter: inherit;
 }
 
 .heart::before {
-  left: 100px;
+  top: -60px;
+  left: 0;
 }
 
 .heart::after {
-  top: 100px;
-  transform: rotate(-45deg);
+  left: 60px;
+  top: 0;
 }
 
-@keyframes pulse {
-  0% { transform: scale(1); opacity: 0.8; }
-  100% { transform: scale(1.2); opacity: 1; }
+/* ❤️ Heartbeat Animation */
+@keyframes heartbeat {
+  0%, 100% { transform: rotate(-45deg) scale(1); }
+  25% { transform: rotate(-45deg) scale(1.1); }
+  50% { transform: rotate(-45deg) scale(0.95); }
+  75% { transform: rotate(-45deg) scale(1.05); }
 }
 
-@keyframes float {
-  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
-  100% { transform: translate(-50%, -55%) scale(1.05) rotate(10deg); }
-}
-
-/* Content box */
+/* 🌷 Glass effect for text area */
 .container {
   position: relative;
   z-index: 2;
   text-align: center;
   background: rgba(255, 255, 255, 0.1);
   padding: 30px 20px;
-  border-radius: 20px;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
   width: 85%;
   max-width: 400px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
 }
 
-h1 {
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-}
-
+/* 🧁 Inputs & Buttons */
 input {
   padding: 10px;
   border: none;
   border-radius: 10px;
   width: 70%;
   margin-bottom: 10px;
+  text-align: center;
 }
 
 button {
@@ -98,12 +116,19 @@ button {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-  box-shadow: 0 0 10px var(--heart-color);
+  box-shadow: 0 0 15px var(--heart-color);
 }
 
 button:hover {
   transform: scale(1.05);
-  box-shadow: 0 0 20px var(--heart-color);
+  box-shadow: 0 0 25px var(--heart-color);
+}
+
+/* 💎 Text Styling */
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 20px var(--heart-color);
 }
 
 .error {
@@ -116,6 +141,6 @@ button:hover {
   font-size: 1.3rem;
   line-height: 1.7;
   font-style: italic;
-  text-shadow: 0 0 10px var(--heart-color);
+  text-shadow: 0 0 15px var(--heart-color);
   padding: 20px;
 }
