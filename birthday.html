@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 💕</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    :root { --heart-color: #d291ff; } /* PURPLE neon */
+  </style>
+</head>
+<body>
+  <div class="background">
+    <div class="heart"></div>
+  </div>
+
+  <div class="container">
+    <h1 id="wish"></h1>
+    <button onclick="showMessage()">You have one message 🎁</button>
+  </div>
+
+  <script>
+    const name = localStorage.getItem("name");
+    if (!name) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("wish").textContent = `Happy Birthday, ${name} 🎂💖`;
+    }
+
+    function showMessage() {
+      window.location.href = "message.html";
+    }
+  </script>
+</body>
+</html>
