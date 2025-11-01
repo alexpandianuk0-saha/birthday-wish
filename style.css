@@ -1,66 +1,36 @@
-/* General */
-* { margin:0; padding:0; box-sizing:border-box; }
-body { overflow:hidden; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:#fff; transition: background 1.5s ease; }
-#container { position: fixed; top:0; left:0; width:100%; height:100%; }
-.glow { position: fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; mix-blend-mode:screen; opacity:0.75; transition: background 1.5s ease; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Center content */
-.center-content {
+body {
+  overflow: hidden;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+  background: black;
+}
+
+#container {
   position: fixed;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  text-align:center;
-  z-index:10;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.center-content h1 {
-  font-size:2.2em;
-  margin-bottom:20px;
-  color:#ff77aa;
+.glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  opacity: 0.75;
 }
 
-.center-content input {
-  padding:12px 15px;
-  font-size:1em;
-  border-radius:10px;
-  border:none;
-  outline:none;
-  margin-bottom:15px;
-  width:220px;
-  text-align:center;
-}
-
-.center-content button {
-  padding:12px 25px;
-  font-size:1em;
-  border-radius:10px;
-  border:none;
-  background:#ff4081;
-  color:#fff;
-  cursor:pointer;
-  transition: background 0.3s ease;
-}
-
-.center-content button:hover { background:#ff79a8; }
-
-.center-content .quote {
-  font-size:1.5em;
-  line-height:1.6em;
-  max-width:500px;
-  margin:auto;
-  color:#ffccdd;
-}
-
-/* Themes */
-body.theme-molten { background:linear-gradient(180deg,#000000 0%,#100500 50%,#1f0a00 100%); }
-body.theme-cosmic { background:linear-gradient(180deg,#000000 0%,#050010 50%,#0a001f 100%); }
-body.theme-emerald { background:linear-gradient(180deg,#000000 0%,#001005 50%,#001f0a 100%); }
-
-/* Responsive */
-@media(max-width:768px){ .center-content h1{font-size:1.8em;} .center-content .quote{font-size:1.2em; max-width:90%;} .center-content input{width:180px;} }
-
-.center-content {
+.content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -69,19 +39,21 @@ body.theme-emerald { background:linear-gradient(180deg,#000000 0%,#001005 50%,#0
   z-index: 10;
 }
 
-.center-content input {
+input {
   padding: 10px;
   font-size: 16px;
   border-radius: 8px;
   border: none;
-  outline: none;
+  margin-top: 15px;
 }
 
-.center-content button {
-  margin-top: 15px;
+button {
   padding: 10px 20px;
+  margin-top: 15px;
   font-size: 16px;
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  background: #ff69b4;
+  color: white;
 }

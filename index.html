@@ -2,31 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Enter Your Name</title>
+  <title>Birthday Surprise</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="theme-molten">
+<body>
   <div id="container"></div>
   <div class="glow"></div>
 
-  <div class="center-content">
+  <div class="content">
     <h1>Enter Your Name</h1>
-    <input type="text" id="nameInput" placeholder="Your name here">
-    <button id="submitName">Submit</button>
-    <p id="error" style="color: #ff4d6d; margin-top:10px;"></p>
+    <input id="nameInput" placeholder="Your Name"/>
+    <button id="submitBtn">Submit</button>
+    <p id="errorMsg"></p>
   </div>
 
-  <script src="script.js"></script>
-  <script>
-    document.getElementById("submitName").addEventListener("click", () => {
-      const input = document.getElementById("nameInput").value.trim();
-      if (input.toLowerCase() === "sahana") {
-        localStorage.setItem("name", "Sahana");
-        window.location.href = "birthday.html";
-      } else {
-        document.getElementById("error").textContent = "This message is not for you!";
-      }
-    });
-  </script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
