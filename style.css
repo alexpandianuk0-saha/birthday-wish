@@ -55,6 +55,48 @@ button {
   transition: background 1.5s ease;
 }
 
+.center-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 10; /* ensures it appears above the Three.js animation */
+}
+
+.center-content h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ff77aa;
+}
+
+.center-content input {
+  padding: 10px 15px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin-bottom: 15px;
+  width: 200px;
+  text-align: center;
+}
+
+.center-content button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 8px;
+  border: none;
+  background: #ff4081;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.center-content button:hover {
+  background: #ff79a8;
+}
+
+
 /* Themes */
 body.theme-molten { background: linear-gradient(180deg,#000000 0%,#100500 50%,#1f0a00 100%); }
 body.theme-cosmic { background: linear-gradient(180deg,#000000 0%,#050010 50%,#0a001f 100%); }
