@@ -1,33 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💕</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Happy Birthday 💖</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
-<body class="theme-cosmic">
-  <div class="background">
-    <div class="glow"></div>
-    <div class="heart"></div>
-  </div>
+<body class="theme-cosmic" onload="showBirthdayWish()">
+  <div id="container"></div>
+  <div class="glow"></div>
+  <div id="controls"></div>
 
   <div class="container">
     <h1 id="wish"></h1>
-    <button onclick="showMessage()">You have one message 🎁</button>
+    <button onclick="showMessage()">Next</button>
   </div>
 
-  <script>
-    const name = localStorage.getItem("name");
-    if (!name) {
-      window.location.href = "index.html";
-    } else {
-      document.getElementById("wish").textContent = `Happy Birthday, ${name} 🎂💖`;
-    }
-
-    function showMessage() {
-      window.location.href = "message.html";
-    }
-  </script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>

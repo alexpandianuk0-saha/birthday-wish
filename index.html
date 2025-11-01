@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Someone Special 💖</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>For Sahana 💖</title>
+  <link rel="stylesheet" href="style.css" />
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.162.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.162.0/examples/jsm/"
+      }
+    }
+  </script>
 </head>
 <body class="theme-molten">
-  <div class="background">
-    <div class="glow"></div>
-    <div class="heart"></div>
-  </div>
+  <div id="container"></div>
+  <div class="glow"></div>
+  <div id="controls"></div>
 
   <div class="container">
     <h1>Enter your name 💌</h1>
-    <input type="text" id="nameInput" placeholder="Enter your name...">
+    <input type="text" id="nameInput" placeholder="Sahana">
     <button onclick="checkName()">Continue</button>
     <p id="errorMsg" class="error"></p>
   </div>
 
-  <script>
-    function checkName() {
-      const name = document.getElementById("nameInput").value.trim();
-      const error = document.getElementById("errorMsg");
-      if (name.toLowerCase() === "sahana") {
-        localStorage.setItem("name", name);
-        window.location.href = "birthday.html";
-      } else {
-        error.textContent = "This message is not for you 💔";
-      }
-    }
-  </script>
+  <script type="module" src="script.js"></script>
 </body>
 </html>
