@@ -1,0 +1,121 @@
+/* General layout */
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #000;
+  color: #fff;
+}
+
+/* Neon heart animation background */
+.background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.heart {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 180px;
+  transform: translate(-50%, -50%) scale(1);
+  background: transparent;
+  animation: float 4s ease-in-out infinite alternate;
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 180px;
+  background: var(--heart-color);
+  border-radius: 50%;
+  filter: blur(25px) brightness(2);
+  box-shadow: 0 0 60px var(--heart-color), 0 0 100px var(--heart-color);
+  animation: pulse 2s ease-in-out infinite alternate;
+}
+
+.heart::before {
+  left: 100px;
+}
+
+.heart::after {
+  top: 100px;
+  transform: rotate(-45deg);
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+@keyframes float {
+  0% { transform: translate(-50%, -50%) scale(1) rotate(0deg); }
+  100% { transform: translate(-50%, -55%) scale(1.05) rotate(10deg); }
+}
+
+/* Content box */
+.container {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+  width: 85%;
+  max-width: 400px;
+  backdrop-filter: blur(10px);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  width: 70%;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: var(--heart-color);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px var(--heart-color);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px var(--heart-color);
+}
+
+.error {
+  margin-top: 10px;
+  color: #ffebee;
+  font-weight: bold;
+}
+
+.quote {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  font-style: italic;
+  text-shadow: 0 0 10px var(--heart-color);
+  padding: 20px;
+}
